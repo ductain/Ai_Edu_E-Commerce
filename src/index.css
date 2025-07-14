@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+.edushop-menu .ant-menu-item-selected,
+.edushop-menu-item.ant-menu-item-selected {
+  background-color: #d4380d !important;
+  color: #fff !important;
+  transition: background 0.2s;
+}
+
+.edushop-searchbar .ant-btn-primary,
+.edushop-searchbar .ant-input-search-button {
+  background-color: #fa541c !important;
+  border-color: #fa541c !important;
+  color: #fff !important;
+  transition: background 0.2s;
+}
+
+.edushop-searchbar .ant-btn-primary:hover,
+.edushop-searchbar .ant-input-search-button:hover {
+  background-color: #d4380d !important;
+  border-color: #d4380d !important;
+}
