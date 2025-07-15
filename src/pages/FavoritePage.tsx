@@ -48,7 +48,7 @@ const FavoritePage = () => {
       if (!updated.isFavorite) {
         notification.info({
           message: "Thông báo",
-          description: "Đã bỏ khỏi yêu thích.",
+          description: `${product.name} đã được bỏ khỏi yêu thích.`,
         });
         setProducts((prev) => prev.filter((p) => p.id !== product.id));
         setSelectedProduct((prev) =>
@@ -58,7 +58,7 @@ const FavoritePage = () => {
       } else {
         notification.success({
           message: "Thông báo",
-          description: "Đã thêm vào yêu thích!",
+          description: `${product.name} đã được thêm vào yêu thích!`,
         });
         setProducts((prev) =>
           prev.map((p) =>

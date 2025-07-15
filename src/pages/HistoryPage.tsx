@@ -54,12 +54,12 @@ const HistoryPage = () => {
       if (updated.isFavorite) {
         notification.success({
           message: "Thông báo",
-          description: "Đã thêm vào yêu thích!",
+          description: `${product.name} đã được thêm vào yêu thích!`,
         });
       } else {
         notification.info({
           message: "Thông báo",
-          description: "Đã bỏ khỏi yêu thích.",
+          description: `${product.name} đã được bỏ khỏi yêu thích.`,
         });
       }
       setProducts((prev) =>
