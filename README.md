@@ -23,12 +23,12 @@ EduShop là sàn thương mại điện tử giáo dục hiện đại, nơi ng�
 - [Vercel](https://vercel.com/) (deploy)
 
 ## ⚡️ Demo
-Dự án đã được deploy tại: [https://edushop-your-vercel-url.vercel.app](https://edushop-your-vercel-url.vercel.app)
+Dự án đã được deploy tại: [https://ai-edu-e-commerce.vercel.app/]
 
 ## 📦 Hướng dẫn cài đặt & chạy local
 1. **Clone repo:**
    ```bash
-   git clone https://github.com/your-username/edushop.git
+   git clone https://github.com/ductain/Ai_Edu_E-Commerce.git
    cd edushop
    ```
 2. **Cài đặt dependencies:**
@@ -69,7 +69,6 @@ src/
 
 ## 📞 Liên hệ & đóng góp
 - Nếu có ý kiến, bug hoặc muốn đóng góp, hãy tạo issue hoặc PR trên Github repo này.
-- Email: contact@edushop.com
 
 ---
 **EduShop** - Nền tảng giáo dục trực tuyến hiện đại, đồng hành cùng bạn trên hành trình tri thức!
