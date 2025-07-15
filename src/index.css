@@ -1,5 +1,52 @@
 @import "tailwindcss";
 
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoom-float {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-10px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.01) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-zoom-float {
+  animation: zoom-float 1.2s cubic-bezier(0.22, 1, 0.36, 1) both, floatY 3s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
 .edushop-menu .ant-menu-item-selected,
 .edushop-menu-item.ant-menu-item-selected {
   background-color: #d4380d !important;

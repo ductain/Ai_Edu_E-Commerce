@@ -43,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onDetail, loading, o
   return (
     <Card
       hoverable
-      className="w-full max-w-xl min-h-116 mx-auto flex flex-col"
+      className="w-full max-w-xl min-h-116 mx-auto flex flex-col transform hover:scale-105 transition-all duration-500"
       cover={
         <img
           alt={product.name}
