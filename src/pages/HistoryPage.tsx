@@ -7,7 +7,7 @@ import {
 import type { Product } from "../types/Product";
 import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
-import { Row, Col, Empty, message } from "antd";
+import { Row, Col, Empty, message, notification } from "antd";
 import ProductDetailModal from "../components/ProductDetailModal";
 
 const HistoryPage = () => {
@@ -52,9 +52,15 @@ const HistoryPage = () => {
         !product.isFavorite
       );
       if (updated.isFavorite) {
-        message.success("Đã thêm vào yêu thích!");
+        notification.success({
+          message: "Thông báo",
+          description: "Đã thêm vào yêu thích!",
+        });
       } else {
-        message.info("Đã bỏ khỏi yêu thích.");
+        notification.info({
+          message: "Thông báo",
+          description: "Đã bỏ khỏi yêu thích.",
+        });
       }
       setProducts((prev) =>
         prev.map((p) =>

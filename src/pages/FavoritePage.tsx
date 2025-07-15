@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getFavoriteProducts, updateProductFavorite, updateProductHistory } from "../services/api";
 import type { Product } from "../types/Product";
 import ProductCard from "../components/ProductCard";
-import { Row, Col, message, Empty } from "antd";
+import { Row, Col, message, Empty, notification } from "antd";
 import ProductDetailModal from "../components/ProductDetailModal";
 import Pagination from "../components/Pagination";
 
@@ -46,14 +46,20 @@ const FavoritePage = () => {
     try {
       const updated = await updateProductFavorite(product.id, !product.isFavorite);
       if (!updated.isFavorite) {
-        message.info("Đã bỏ khỏi yêu thích."); // Show message first
+        notification.info({
+          message: "Thông báo",
+          description: "Đã bỏ khỏi yêu thích.",
+        });
         setProducts((prev) => prev.filter((p) => p.id !== product.id));
         setSelectedProduct((prev) =>
           prev && prev.id === product.id ? null : prev
         );
         setModalOpen(false);
       } else {
-        message.success("Đã thêm vào yêu thích!");
+        notification.success({
+          message: "Thông báo",
+          description: "Đã thêm vào yêu thích!",
+        });
         setProducts((prev) =>
           prev.map((p) =>
             p.id === product.id ? { ...p, isFavorite: updated.isFavorite } : p

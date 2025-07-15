@@ -8,6 +8,12 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [searchValue, setSearchValue] = useState("");
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    onSearch(value)
+  };
+
   return (
     <Input.Search
       placeholder="Tìm kiếm sản phẩm..."
@@ -15,7 +21,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       enterButton
       className="edushop-searchbar"
       value={searchValue}
-      onChange={(e) => setSearchValue(e.target.value)}
+      onChange={handleChange}
       onSearch={onSearch}
     />
   );

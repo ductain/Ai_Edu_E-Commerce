@@ -8,10 +8,11 @@ import {
 import type { Product } from "../types/Product";
 import ProductCard from "../components/ProductCard";
 import ProductDetailModal from "../components/ProductDetailModal";
-import { Row, Col, message, Alert, Empty } from "antd";
+import { Row, Col, message, Alert, Empty, notification } from "antd";
 import Pagination from "../components/Pagination";
 import FilterBar from "../components/FilterBar";
 import Banner from "../components/Banner";
+import { removeVietnameseTones } from "../utils/Utils";
 
 const Homepage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -43,9 +44,9 @@ const Homepage = () => {
   }, []);
 
   const handleSearch = (value: string) => {
-    const lower = value.toLowerCase();
+    const searchNorm = removeVietnameseTones(value.toLowerCase());
     const filtered = products.filter((p) =>
-      p.name.toLowerCase().includes(lower)
+      removeVietnameseTones(p.name.toLowerCase()).includes(searchNorm)
     );
     setFilteredProducts(filtered);
     setCurrentPage(1);
@@ -99,9 +100,15 @@ const Homepage = () => {
         !product.isFavorite
       );
       if (updated.isFavorite) {
-        message.success("Đã thêm vào yêu thích!");
+        notification.success({
+          message: "Thông báo",
+          description: "Đã thêm vào yêu thích!",
+        });
       } else {
-        message.info("Đã bỏ khỏi yêu thích.");
+        notification.info({
+          message: "Thông báo",
+          description: "Đã bỏ khỏi yêu thích.",
+        });
       }
       setProducts((prev) =>
         prev.map((p) =>
