@@ -47,6 +47,6 @@ export const getSuggestions = async (userId: string) => {
 
 // Chatbot API
 export const sendChatMessage = async (userInput: string) => {
-  const res = await axios.post('https://coh2-be.vercel.app/chat', { userInput });
+  const res = await axios.post('https://coh2-be.vercel.app/chat-shop', { userInput });
   return res.data;
 };

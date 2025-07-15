@@ -14,17 +14,16 @@ function getViewedText(clickedTime?: string | Date) {
   if (!clickedTime) return null;
   const now = new Date();
   const clickedDate = new Date(clickedTime);
-  const isToday =
-    now.getFullYear() === clickedDate.getFullYear() &&
-    now.getMonth() === clickedDate.getMonth() &&
-    now.getDate() === clickedDate.getDate();
-  if (isToday) return "Đã xem hôm nay";
-  // Calculate days difference
-  const diffTime = now.getTime() - clickedDate.getTime();
-  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const diffMs = now.getTime() - clickedDate.getTime();
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+  if (diffHours < 24) {
+    if (diffHours < 1) return "Đã xem gần đây";
+    if (diffHours === 1) return "Đã xem 1 giờ trước";
+    return `Đã xem ${diffHours} giờ trước`;
+  }
+  const diffDays = Math.floor(diffHours / 24);
   if (diffDays === 1) return "Đã xem 1 ngày trước";
-  if (diffDays > 1) return `Đã xem ${diffDays} ngày trước`;
-  return null;
+  return `Đã xem ${diffDays} ngày trước`;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onDetail, loading, onToggleFavorite }) => {
